@@ -1,4 +1,5 @@
 
+
 console.log("from foreground");
 
 chrome.tabs.executeScript( {
