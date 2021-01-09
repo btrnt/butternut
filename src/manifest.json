@@ -1,25 +1,31 @@
 {
   "name": "Butternut",
-  "version": "0.1",
   "description": "Checks whether the selected text is written by a bot or not.",
+  "version": "0.1",
   "manifest_version": 2,
+  // "icons":{
 
+  // },
+
+  "background": {
+    "scripts": ["./background.js"]
+  },
+  "options_page": "./options.html",
   "browser_action": {
     "default_title": "Butternut",
-    "default_icon": "icon.png",
-    "default_popup": "popup.html" 
+    "default_popup": "./popup.html", 
+    "default_icon": "./icon.png"
   },
 
   "permissions": [
-    "activeTab",
     "tabs",
+    "activeTab",
     "<all_urls>"
-  ],
-
-  "content_scripts": [{
-      "matches": ["<all_urls>"],
-      "js": ["foreground.js"],
-      "run_at": "document_start",
-      "all_frames": true
-  }]
+  ]
 }
+  // "content_scripts": [{
+  //     "matches": ["<all_urls>"],
+  //     "js": ["./foreground.js"],
+  //     "run_at": "document_start",
+  //     "all_frames": true
+  // }]
