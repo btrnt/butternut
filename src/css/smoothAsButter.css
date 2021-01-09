@@ -1,19 +1,5 @@
 /* Let's get this goin boiz */
 
-#analyzeBtn {
-	display: inline;
-	width: 100px;
-	height: 100px;
-	border: 1px solid blue;  
-}
-#infoAbtSelected {
-	display: inline;
-}
-
-#controls {
-	margin-top: 5px;
-}
-
 .btn {
 	background-color: red;
 	box-shadow: 0 5px 0 darkred;
@@ -22,14 +8,25 @@
 	position: relative;
 	text-decoration: none;
 	text-transform: uppercase;
+	border-radius: 12px;
 }
 
 .btn:hover {
 	background-color: #ce0606;
-   cursor: pointer;
+	cursor: pointer;
 }
 
 .btn:active {
 	box-shadow: none;
 	top: 5px;
 }
+
+#controls {
+	margin-top: 5px;
+}
+
+#analyzeBtn, #infoAbtSelected {
+	display: inline;
+}
+
+
