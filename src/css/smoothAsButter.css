@@ -1,5 +1,21 @@
 /* Let's get this goin boiz */
 
+body {
+	padding-bottom: 1em;
+}
+
+
+#controls {
+	margin-top: 1em;
+}
+
+#analyzeBtn, #infoAbtSelected {
+	display: inline;
+}
+
+
+
+/* =============== Buttons =============== */
 .btn {
 	background-color: red;
 	box-shadow: 0 5px 0 darkred;
@@ -20,13 +36,26 @@
 	box-shadow: none;
 	top: 5px;
 }
+/* =============== Buttons =============== */
 
-#controls {
-	margin-top: 5px;
+/* =============== Scrollbar =============== */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-#analyzeBtn, #infoAbtSelected {
-	display: inline;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
 }
 
-
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/* =============== ========= =============== */
