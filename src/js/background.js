@@ -9,11 +9,15 @@ chrome.tabs.onActivated.addListener(tab => {
 	})
 })
 
+// Responsible for opening the extension, with the ID, to view the Analytics.
 function viewAnalytics(info, tab) {
 	chrome.tabs.create({
-		url: "http://www.google.com/search?q=" + info.selectionText
+		url: "chrome-extension://" + chrome.runtime.id + "/analytics.html"
+		// Use the variable "info.selectionText" to grab the selected text.
 	});
 }
+
+// The Right-clicky option!
 chrome.contextMenus.create({
 	title: "Search: %s",
 	contexts: ["selection"],
