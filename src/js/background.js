@@ -9,3 +9,13 @@ chrome.tabs.onActivated.addListener(tab => {
 	})
 })
 
+function viewAnalytics(info, tab) {
+	chrome.tabs.create({
+		url: "http://www.google.com/search?q=" + info.selectionText
+	});
+}
+chrome.contextMenus.create({
+	title: "Search: %s",
+	contexts: ["selection"],
+	onclick: viewAnalytics
+});
