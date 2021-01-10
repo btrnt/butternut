@@ -28,6 +28,10 @@ h1 {
 	/*margin-top: : 2.2em;*/
 }
 
+#loadingImg{
+	display: none;
+}
+
 #analyzeBtn, #infoAbtSelected {
 	text-align: center;
 	display: block;
