@@ -1,4 +1,4 @@
-console.log("===running init_analytics.js");
+console.log("===running init_popupWindow.js");
 
 // document.getElementById("analyzeBtn").style.display = 'none';
 // document.getElementById("textarea").disabled = true;

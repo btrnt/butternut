@@ -1,14 +1,20 @@
 // For triggered events
 console.log("===running actions.js");
 
-const btnAnalyze = document.getElementById("analyzeBtn")
-const btnViewAnalytics = document.getElementById("viewAnalyticsContainer")
-const txtOutput = document.getElementById("infoAbtSelected")
-const txtInput = document.getElementById("textarea")
+const btnAnalyze = document.getElementById("analyzeBtn");
+const btnViewAnalytics = document.getElementById("viewAnalyticsContainer");
+const txtOutput = document.getElementById("infoAbtSelected");
+const txtInput = document.getElementById("textarea");
+let response = null;
 
 btnAnalyze.addEventListener("click", analyze);
 
 function viewAnalytics() {
+
+
+	chrome.storage.local.set({ 'selectedText': response }, function () {
+		console.log('===Value is set to: ' + response);
+	});
 	chrome.tabs.create({
 		url: chrome.extension.getURL('./analytics.html'),
 		active: false
@@ -50,7 +56,7 @@ async function analyze() {
 
 	let responseText = await getAnalysis();
 	try{
-		let response = JSON.parse(responseText)
+		response = JSON.parse(responseText)
 
 		console.log("===xhr.responseText:\n" + responseText);
 		console.log(response)
