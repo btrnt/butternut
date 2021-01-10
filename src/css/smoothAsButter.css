@@ -38,6 +38,19 @@ h1 {
 	display: none;
 }
 
+#score {
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	border-radius: 50%;
+	font-size: 90px;
+	color: white;
+	text-align: center;
+	background: red;
+	display:none;
+	margin: 0.2em;
+  }
+
 /* =============== Buttons =============== */
 .btn {
 	background-color: transparent;
