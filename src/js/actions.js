@@ -1,11 +1,34 @@
 // For triggered events
 console.log("===running actions.js");
 
-const btnAnalyze = document.getElementById("analyzeBtn")
-const txtOutput = document.getElementById("infoAbtSelected")
-const txtInput = document.getElementById("textarea")
+const btnAnalyze = document.getElementById("analyzeBtn");
+const btnViewAnalytics = document.getElementById("viewAnalyticsContainer");
+const txtOutput = document.getElementById("infoAbtSelected");
+const txtInput = document.getElementById("textarea");
+let response = null;
 
-btnAnalyze.addEventListener("click", analyze)
+btnAnalyze.addEventListener("click", analyze);
+
+function viewAnalytics() {
+
+
+	chrome.storage.local.set({ 'selectedText': response }, function () {
+		console.log('===Value is set to: ' + response);
+	});
+	chrome.tabs.create({
+		url: chrome.extension.getURL('./analytics.html'),
+		active: false
+	}, function (tab) {
+		// After the tab has been created, open a window to inject the tab
+		chrome.windows.create({
+			tabId: tab.id,
+			type: 'popup',
+			focused: true,
+			width: 400,
+			height: 500
+		});
+	});
+}
 
 async function analyze() {
 	console.log("===Analyzing");
@@ -16,6 +39,7 @@ async function analyze() {
 		document.getElementById("score").style.display = 'none';
 		document.getElementById("viewAnalyticsContainer").style.display = 'none';
 		document.getElementById("searchResultsContainer").style.display = 'none';
+		btnViewAnalytics.addEventListener("click", null);
 		return;
 	}
 	var extractedText = document.getElementById("textarea").value;
@@ -31,9 +55,8 @@ async function analyze() {
 	document.getElementById("searchResultsContainer").style.display = 'none';
 
 	let responseText = await getAnalysis();
-	try {
-		let response = JSON.parse(responseText)
-
+	try{
+		response = JSON.parse(responseText)
 		console.log("===xhr.responseText:\n" + responseText);
 		console.log(response)
 
@@ -64,8 +87,8 @@ async function analyze() {
 				active: false
 			})
 		});
-
-	} catch (e) {
+		btnViewAnalytics.addEventListener("click", viewAnalytics);
+	}catch(e){
 		console.log(e)
 	}
 }
