@@ -1,3 +1,5 @@
+// For triggered events
+console.log("===running actions.js");
 
 const btnAnalyze = document.getElementById("analyzeBtn")
 const txtOutput = document.getElementById("infoAbtSelected")
@@ -6,13 +8,19 @@ const txtInput = document.getElementById("textarea")
 btnAnalyze.addEventListener("click", analyze)
 
 async function analyze() {
-	console.log("Analyzing");
-	console.log(document.getElementById("textarea").value);
+	console.log("===Analyzing");
+	var extractedText = document.getElementById("textarea").value;
+	console.log("===Extracted text:\n" + extractedText);
+	if (extractedText.length == 0) {
+		document.getElementById("infoAbtSelected").innerHTML = "No input provided";
+	} else {
+		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
+	}
 
 	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
 	document.getElementById("viewAnalyticsContainer").style.display = 'inline';
-	//
-	document.getElementById("searchResults").innerHTML = "<span>Similar News Search Results:</span>";
+
+	document.getElementById("searchResults").innerHTML = "<p>Similar News Search Results:</p>";
 	document.getElementById("searchResults").style.display = 'inline';
 
 	document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
@@ -41,7 +49,6 @@ async function analyze() {
 
 	xhr.send("text=" + encodeURI(txtInput.value));
 
-	console.log(xhr.responseText)
+	console.log("===xhr.responseText:\n" + xhr.responseText);
 
-	document.getElementById("infoAbtSelected").innerHTML = "Length: " + document.getElementById("textarea").value.length;
 }
