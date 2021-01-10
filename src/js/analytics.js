@@ -16,11 +16,23 @@ chrome.storage.local.get(['selectedText'], function (data) {
 			txtInput.innerHTML += "<br/>";
 		} else {
 			txtInput.innerHTML += "<mark style='background-color:"
-				+ perc2color(100 - ((response.real_topk[i][0]) / 1000 * 100))
+				+ perc2colorMap(100 - ((response.real_topk[i][0]) / 1000 * 100))
 				+ "'>" + token + "</mark>";
 		}
 	}
 });
+
+function perc2colorMap(perc) {
+	if (perc < 25) {
+		return '#e15b64'
+	} else if (perc < 50) {
+		return '#ee9153'
+	} else if (perc < 75) {
+		return '#f8b26a'
+	} else {
+		return '#abbd81'
+	}
+}
 
 function perc2color(perc) {
 	var r, g, b = 0;
