@@ -21,8 +21,8 @@ async function analyze() {
 	document.getElementById("viewAnalyticsContainer").style.display = 'none';
 	document.getElementById("searchResultsContainer").style.display = 'none';
 
-	try{
 		let responseText = await getAnalysis();
+	try{
 		let response = JSON.parse(responseText)
 
 		console.log("===xhr.responseText:\n" + responseText);
@@ -32,7 +32,9 @@ async function analyze() {
 		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen
 		console.log((avg*100).toPrecision(2))
 		document.getElementById("score").innerText = (avg*100).toPrecision(2);
+		document.getElementById("score").attributes['style'].textContent='background-color:'+perc2color(100-(avg*100));
 		document.getElementById("score").style.display = 'block';
+
 
 		document.getElementById("loadingImg").style.display = 'none';
 
@@ -69,4 +71,18 @@ function getAnalysis(){
 		};
 		xhr.send("text="+encodeURI(txtInput.value));
 	});
+}
+
+function perc2color(perc) {
+	var r, g, b = 0;
+	if(perc < 50) {
+		r = 255;
+		g = Math.round(5.1 * perc);
+	}
+	else {
+		g = 255;
+		r = Math.round(510 - 5.10 * perc);
+	}
+	var h = r * 0x10000 + g * 0x100 + b * 0x1;
+	return '#' + ('000000' + h.toString(16)).slice(-6);
 }
