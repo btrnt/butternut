@@ -7,8 +7,8 @@ function analyze() {
 	console.log(document.getElementById("textarea").value);
 
 	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
-	document.getElementById("viewAnalyticsContainer").style.display = 'block';
+	document.getElementById("viewAnalyticsContainer").style.display = 'inline';
 
 	document.getElementById("searchResults").innerHTML = "<span>Similar News Search Results:</span>";
-	document.getElementById("searchResults").style.display = 'block';
+	document.getElementById("searchResults").style.display = 'inline';
 }
