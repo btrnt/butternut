@@ -21,11 +21,10 @@ async function analyze() {
 	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
 	document.getElementById("viewAnalyticsContainer").style.display = 'block';
 
-	document.getElementById("searchResults").innerHTML = "<p>Similar News Search Results:</p>";
-	document.getElementById("searchResults").style.display = 'block';
-
 	document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
 	document.getElementById("searchResultsContainer").style.display = 'block';
+	document.getElementById("searchResultsContainer").style.margin = '3em';
+
 
 	document.getElementById('searchResults').addEventListener("click", function () {
 		chrome.tabs.create({
