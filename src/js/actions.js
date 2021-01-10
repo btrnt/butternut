@@ -12,6 +12,8 @@ async function analyze() {
 	var extractedText = document.getElementById("textarea").value;
 	console.log("===Extracted text:\n" + extractedText);
 
+	document.getElementById("loadingImg").style.display = 'block';
+
 	document.getElementById("infoAbtSelected").innerHTML = "No input provided";
 	document.getElementById("textarea").placeholder = "Please select text to analyze.";
 	document.getElementById("score").style.display = 'none';
@@ -30,6 +32,8 @@ async function analyze() {
 		console.log((avg*100).toPrecision(2))
 		document.getElementById("score").innerText = (avg*100).toPrecision(2);
 		document.getElementById("score").style.display = 'block';
+
+		document.getElementById("loadingImg").style.display = 'none';
 
 		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
 		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
