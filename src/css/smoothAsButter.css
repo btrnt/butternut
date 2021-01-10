@@ -15,7 +15,6 @@ textarea {
 	resize: none;
 }
 
-
 #logo {
 	height: 28px;
 }
@@ -34,6 +33,13 @@ h1 {
 	max-width: 80%;
 }
 
+#analyzeBtn {
+	background: #ee9153;
+	color: white;
+	font-size: 20px;
+	border: 2px solid #ee9153;
+}
+
 #analyzeBtn, #infoAbtSelected {
 	text-align: center;
 	display: block;
@@ -50,7 +56,7 @@ h1 {
 	line-height: 137px;
 	border-radius: 50%;
 	font-size: 90px;
-	color: black;
+	color: #333333;
 	text-align: center;
 	background: transparent;
 	/*border: 1px solid #333333;*/
@@ -63,19 +69,20 @@ h1 {
 .btn {
 	background-color: transparent;
 	padding: 0.5em 0.8em;
+	margin: 0.5em 0em;
 	position: relative;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 14px;
-	text-transform: uppercase;
-	border: 2px solid black;
-	border-radius: 12px;
+	text-transform: capitalize;
+	border: 2px solid #333333;
+	border-radius: 5px;
 	box-shadow: 1px 2px 1px #333333;
 }
 
 .btn:hover {
 	cursor: pointer;
-	box-shadow: 2px 3px 1px black;
+	box-shadow: 2px 3px 1px #333333;
 }
 
 .btn:active {

@@ -41,7 +41,7 @@ async function analyze() {
 		document.getElementById("searchResultsContainer").style.display = 'none';
 		btnViewAnalytics.addEventListener("click", null);
 		return;
-	} 
+	}
 	var extractedText = document.getElementById("textarea").value;
 	console.log("===Extracted text:\n" + extractedText);
 
@@ -57,25 +57,24 @@ async function analyze() {
 	let responseText = await getAnalysis();
 	try{
 		response = JSON.parse(responseText)
-
 		console.log("===xhr.responseText:\n" + responseText);
 		console.log(response)
 
 		let rankLen = 50257
-		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen
-		console.log((avg*100).toPrecision(2))
-		document.getElementById("score").innerText = (avg*100).toPrecision(2);
-		document.getElementById("score").attributes['style'].textContent='background-color:'+perc2color(100-(avg*100));
+		let avg = response.real_topk.reduce((total, val) => total + val[0], 0) / rankLen
+		console.log((avg * 100).toPrecision(2))
+		document.getElementById("score").innerText = (avg * 100).toPrecision(2);
+		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2color(100 - (avg * 100));
 		document.getElementById("score").style.display = 'block';
 
 
 		document.getElementById("loadingImg").style.display = 'none';
 
 		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
-		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
-		document.getElementById("viewAnalyticsContainer").style.display = 'inline';
-		document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
-		document.getElementById("searchResultsContainer").style.display = 'inline';
+		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>More Details</a>";
+		document.getElementById("viewAnalyticsContainer").style.display = 'block';
+		document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search More Articles</a>";
+		document.getElementById("searchResultsContainer").style.display = 'block';
 		document.getElementById('searchResults').addEventListener("click", function () {
 			chrome.tabs.create({
 				url: 'https://www.google.com/search?q=' + document.getElementById("textarea").value,
@@ -88,27 +87,27 @@ async function analyze() {
 	}
 }
 
-function getAnalysis(){
-	return new Promise(function(resolve, reject){
+function getAnalysis() {
+	return new Promise(function (resolve, reject) {
 		var url = "http://5e42c4bac232.ngrok.io/gp";
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url);
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhr.onload = function () {
-		   if (xhr.status == 200) {
-			  	resolve(xhr.responseText)
-		   }else{
-		   		reject(xhr.status)
-		   }
+			if (xhr.status == 200) {
+				resolve(xhr.responseText)
+			} else {
+				reject(xhr.status)
+			}
 		};
-		xhr.send("text="+encodeURI(txtInput.value));
+		xhr.send("text=" + encodeURI(txtInput.value));
 	});
 }
 
 function perc2color(perc) {
 	var r, g, b = 0;
-	if(perc < 50) {
+	if (perc < 50) {
 		r = 255;
 		g = Math.round(5.1 * perc);
 	}
