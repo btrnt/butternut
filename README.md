@@ -59,10 +59,6 @@ Two backends are defined in the [butternut backend repo](https://github.com/btrn
 
 CTRL was selected for this project because it is trained on an especially large dataset meaning that it has a larger knowledge base to draw from to discriminate between AI and human -written texts. This, combined with its greater complexity, enables butternut to stay a step ahead of AI text generators.
 
-## Design
-
->>> put in screenshots and describe design choices
-
 ## Challenges we ran into
 - Deciding how to best represent the data
 - How to design a good interface that *invites* people to fact check instead of being scared of it
