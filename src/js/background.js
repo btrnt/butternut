@@ -25,7 +25,7 @@ function viewAnalytics(info, tab) {
 		});
 	});
 	console.log(info.selectionText);
-	chrome.storage.sync.set({'selectedText': info.selectionText}, function() {
+	chrome.storage.local.set({'selectedText': info.selectionText}, function() {
 		console.log('Value is set to ' + info.selectionText);
 	});
 }

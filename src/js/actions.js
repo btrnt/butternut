@@ -9,6 +9,12 @@ async function analyze() {
 	console.log("Analyzing");
 	console.log(document.getElementById("textarea").value);
 
+	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
+	document.getElementById("viewAnalyticsContainer").style.display = 'block';
+
+	document.getElementById("searchResults").innerHTML = "<span>Similar News Search Results:</span>";
+	document.getElementById("searchResults").style.display = 'block';
+
 	var url = "http://1f563e15eb5f.ngrok.io/gp";
 	var data = "text=%22here%20is%20some%20text%22";
 	var response = await postData(url, data)
