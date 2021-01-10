@@ -15,4 +15,3 @@ chrome.tabs.executeScript({
 	console.log(selection[0]);
 });
 
-
