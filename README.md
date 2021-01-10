@@ -37,12 +37,13 @@ Text with consistently high ranks are more likely to be AI-generated because cur
 
 Here are some screenshots of butternut in action with some different texts. Green highlighting means predictable while yellow and red mean unlikely and more unlikely, respectively.
 
+
 Example of human-generated text:
-![human_image](an_url)
+![human_image](https://cdn.discordapp.com/attachments/795154570442833931/797931974064865300/unknown.png)
 
 
 Example of GPT text:
-![gpt_text)(another_url)
+![gpt_text)(https://cdn.discordapp.com/attachments/795154570442833931/797931307958534185/unknown.png)
 
 This was all wrapped up in a simple Flask API for use in a chrome extension.
 
