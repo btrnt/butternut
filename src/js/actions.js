@@ -148,11 +148,12 @@ function perc2colorMap(perc) {
 }
 
 function perc2word(perc) {
-	if (perc < 25) {
+	console.log("=====PERC" + perc);
+	if (0 < perc && perc < 25) {
 		return 'least '
-	} else if (perc < 50) {
+	} else if (0 < perc && perc < 50) {
 		return 'not '
-	} else if (perc < 75) {
+	} else if (0< perc && perc < 75) {
 		return ' '
 	} else {
 		return 'most '
