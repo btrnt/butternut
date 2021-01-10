@@ -41,12 +41,14 @@ h1 {
 #score {
 	width: 150px;
 	height: 150px;
-	line-height: 150px;
+	line-height: 137px;
 	border-radius: 50%;
 	font-size: 90px;
-	color: white;
+	color: black;
 	text-align: center;
-	background: red;
+	background: transparent;
+	/*border: 1px solid #333333;*/
+	box-shadow: 0 0 6px #333333;
 	display:none;
 	margin: 0.2em;
   }
