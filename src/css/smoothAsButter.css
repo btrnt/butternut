@@ -23,15 +23,17 @@ h1 {
 }
 
 .controls {
-	margin-top: 2.2em;
+	/*margin-top: : 2.2em;*/
 }
 
 #analyzeBtn, #infoAbtSelected {
-	display: inline;
+	text-align: center;
+	display: block;
 }
 
 #viewAnalyticsContainer, #searchResultsContainer {
-	display:none;
+	text-align: center;
+	display: none;
 }
 
 /* =============== Buttons =============== */
@@ -45,17 +47,18 @@ h1 {
 	text-transform: uppercase;
 	border: 2px solid black;
 	border-radius: 12px;
+	box-shadow: 1px 2px 1px #333333;
 }
 
 .btn:hover {
 	cursor: pointer;
-	box-shadow: 1px 3px 1px black;
+	box-shadow: 2px 3px 1px black;
 }
 
 .btn:active {
 	box-shadow: none;
 	top: 3px;
-	left: 1px;
+	left: 2px;
 }
 /* =============== Buttons =============== */
 
