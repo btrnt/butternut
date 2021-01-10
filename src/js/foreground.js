@@ -2,9 +2,6 @@
 
 console.log("from foreground");
 
-document.getElementById("analyzeBtn").addEventListener("click", analyze); 
-
-
 chrome.tabs.executeScript( {
 	code: "window.getSelection().toString();"
 }, function(selection) {
@@ -13,12 +10,3 @@ chrome.tabs.executeScript( {
 });
 
 
-function analyze() {
-	console.log("Analyzing");
-	chrome.tabs.executeScript( {
-		code: "window.getSelection().toString();"
-	}, function(selection) {
-		document.getElementById("infoAbtSelected").innerHTML = "Length: " + selection[0].length;
-		console.log(selection[0]);
-	});
-}

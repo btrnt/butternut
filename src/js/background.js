@@ -11,10 +11,23 @@ chrome.tabs.onActivated.addListener(tab => {
 
 // Responsible for opening the extension, with the ID, to view the Analytics.
 function viewAnalytics(info, tab) {
-	chrome.tabs.create({
-		url: "chrome-extension://" + chrome.runtime.id + "/analytics.html"
+	console.log(info.selectionText);
 		// Use the variable "info.selectionText" to grab the selected text.
+
+	 chrome.tabs.create({
+		url: chrome.extension.getURL('analytics.html'),
+		active: false
+	}, function(tab) {
+		// After the tab has been created, open a window to inject the tab
+		chrome.windows.create({
+			tabId: tab.id,
+			type: 'popup',
+			focused: true
+		});
 	});
+
+	const channel = new BroadcastChannel("my-channel");
+    channel.postMessage(info.selectionText);
 }
 
 // The Right-clicky option!
@@ -23,3 +36,4 @@ chrome.contextMenus.create({
 	contexts: ["selection"],
 	onclick: viewAnalytics
 });
+
