@@ -11,26 +11,12 @@ async function analyze() {
 	console.log("===Analyzing");
 	var extractedText = document.getElementById("textarea").value;
 	console.log("===Extracted text:\n" + extractedText);
-	if (extractedText.length == 0) {
-		document.getElementById("infoAbtSelected").innerHTML = "No input provided";
-		document.getElementById("textarea").placeholder = "Please select text to analyze.";
-		document.getElementById("score").style.display = 'none';
-		document.getElementById("viewAnalyticsContainer").style.display = 'none';
-		document.getElementById("searchResultsContainer").style.display = 'none';
-	} else {
-		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
-		document.getElementById("score").style.display = 'block';
-		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
-		document.getElementById("viewAnalyticsContainer").style.display = 'inline';
-		document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
-		document.getElementById("searchResultsContainer").style.display = 'inline';
-		document.getElementById('searchResults').addEventListener("click", function () {
-			chrome.tabs.create({
-				url: 'https://www.google.com/search?q=' + document.getElementById("textarea").value,
-				active: false
-			})
-		});
-	}
+
+	document.getElementById("infoAbtSelected").innerHTML = "No input provided";
+	document.getElementById("textarea").placeholder = "Please select text to analyze.";
+	document.getElementById("score").style.display = 'none';
+	document.getElementById("viewAnalyticsContainer").style.display = 'none';
+	document.getElementById("searchResultsContainer").style.display = 'none';
 
 	try{
 		let responseText = await getAnalysis();
@@ -41,7 +27,22 @@ async function analyze() {
 
 		let rankLen = 50257
 		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen
-		console.log(avg)
+		console.log((avg*100).toPrecision(2))
+		document.getElementById("score").innerText = (avg*100).toPrecision(2);
+		document.getElementById("score").style.display = 'block';
+
+		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
+		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
+		document.getElementById("viewAnalyticsContainer").style.display = 'inline';
+		document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
+		document.getElementById("searchResultsContainer").style.display = 'inline';
+		document.getElementById('searchResults').addEventListener("click", function () {
+			chrome.tabs.create({
+				url: 'https://www.google.com/search?q=' + document.getElementById("textarea").value,
+				active: false
+			})
+		});
+
 	}catch(e){
 		console.log(e)
 	}
