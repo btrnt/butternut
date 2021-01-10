@@ -39,7 +39,10 @@ CTRL was selected for this project because it is trained on an especially large 
 
 ## Design
 
->>> put in screenshots and describe design choices
+Butternut was built with ease of use and simple design in mind. As a web extension that would be simple to use in passing but also access to further analysis if wanted.
+![demo gif](https://imgflip.com/gif/4tb888)
+![demo gif](https://imgflip.com/gif/4tb8vj)
+
 
 
 ## What's next?
