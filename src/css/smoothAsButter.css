@@ -2,10 +2,14 @@
 
 body {
 	padding-bottom: 1em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
 }
 
 textarea {
-	border: 2px, solid, black;
+	border: 2px, solid, #333333;
+	color: #333333;
+	resize: none;
 }
 
 #controls {
@@ -16,23 +20,42 @@ textarea {
 	display: inline;
 }
 
+#logo {
+	max-width: 12%;
+}
+
+h1 {
+	font-size: 32px;
+	color: #333333;
+}
+
+#viewAnalyticsContainer, #searchResults {
+	display:none;
+}
+
 
 
 /* =============== Buttons =============== */
 .btn {
 	background-color: transparent;
-	color: black;
-	padding: 0.5em 0.8em;
+	color: #333333;
+	padding: 0.5em 1.5em;
 	position: relative;
 	text-decoration: none;
-	text-transform: uppercase;
-	border: 2px solid black;
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 14px;
+	border: 1px solid #333333;
 	border-radius: 12px;
 }
 
 .btn:hover {
 	cursor: pointer;
-	box-shadow: 1px 5px 1px black;
+	box-shadow: 1px 5px 1px #333333;
+	border: 1px solid white;
+	background-color: #ee9253;
+	color: white;
+
 }
 
 .btn:active {

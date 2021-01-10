@@ -1,8 +1,14 @@
 
-document.getElementById("analyzeBtn").addEventListener("click", analyze); 
+document.getElementById("analyzeBtn").addEventListener("click", analyze);
 
 function analyze() {
 	console.log("Analyzing");
 	document.getElementById("infoAbtSelected").innerHTML = "Length: " + document.getElementById("textarea").value.length;
 	console.log(document.getElementById("textarea").value);
+
+	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
+	document.getElementById("viewAnalyticsContainer").style.display = 'block';
+
+	document.getElementById("searchResults").innerHTML = "<span>Similar News Search Results:</span>";
+	document.getElementById("searchResults").style.display = 'block';
 }
