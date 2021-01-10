@@ -75,10 +75,11 @@ Made with care by:
 
 
 ```json5
+// our team: 
     'group_member_0': [brian chen](https://github.com/ihasdapie),
     'group_member_1': [trung bui](https://github.com/imqt),
-    'group_member_2': 
-    'group_member_3': 
+    'group_member_2': [vivian wi](https://github.com/vvnwu),
+    'group_member_3': [hans sy](https://github.com/hanssy130)
 ```
 
 
