@@ -1,3 +1,4 @@
+// For triggered events
 
 document.getElementById("analyzeBtn").addEventListener("click", analyze);
 
