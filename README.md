@@ -3,6 +3,7 @@
 
 Is what you're reading online written by a human, or AI? Do the facts hold up? `butternut`is a chrome extension that leverages state-of-the-art text generation models *to combat* state-of-the-art text generation. 
 
+## Usage
 
 
 
@@ -38,9 +39,15 @@ CTRL was selected for this project because it is trained on an especially large 
 
 ## Design
 
+>>> put in screenshots and describe design choices
 
 
 ## What's next?
+Butternut may be extended to improve on it's fact-checking abilities
+- Text sentiment analysis for fact checking
+- Updated backends with more powerful text prediction models
+- Perspective analysis & showing other perspectives on the same topic
+
 
 
 
