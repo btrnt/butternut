@@ -1,5 +1,6 @@
 # butternut 
 ## `buh·tr·nuht` -- `bot or not?`
+![demo gif](./content/4tb888.gif)
 
 Is what you're reading online written by a human, or AI? Do the facts hold up? `butternut`is a chrome extension that leverages state-of-the-art text generation models *to combat* state-of-the-art text generation. 
 
@@ -60,9 +61,9 @@ CTRL was selected for this project because it is trained on an especially large 
 
 ## Design
 
-Butternut was built with ease of use and simple design in mind. As a web extension that would be simple to use in passing but also access to further analysis if wanted.
-![demo gif](https://imgflip.com/gif/4tb888)
-![demo gif](https://imgflip.com/gif/4tb8vj)
+Butternut was built with ease of use and simple design in mind. The design was to be web extension that would be simple to use in passing but also access to further analysis if wanted.
+
+![demo gif](./content/4tb8vj.gif)
 
 
 ## Challenges we ran into
