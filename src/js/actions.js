@@ -15,6 +15,7 @@ async function analyze() {
 	document.getElementById("loadingImg").style.display = 'block';
 
 	document.getElementById("infoAbtSelected").innerHTML = "No input provided";
+	document.getElementById("infoAbtSelected").style.display = 'none';
 	document.getElementById("textarea").placeholder = "Please select text to analyze.";
 	document.getElementById("score").style.display = 'none';
 	document.getElementById("viewAnalyticsContainer").style.display = 'none';
