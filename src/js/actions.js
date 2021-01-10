@@ -145,12 +145,12 @@ function perc2colorMap(perc) {
 
 function perc2word(perc) {
 	if (perc < 25) {
-		return 'most '
-	} else if (perc < 50) {
-		return ' '
-	} else if (perc < 75) {
-		return 'not '
-	} else {
 		return 'least '
+	} else if (perc < 50) {
+		return 'not '
+	} else if (perc < 75) {
+		return ' '
+	} else {
+		return 'most '
 	}
 }

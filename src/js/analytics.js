@@ -12,6 +12,9 @@ chrome.storage.local.get(['selectedText'], function (data) {
 		if (token.slice(-2, token.length).localeCompare('@@') == 0) {
 			token = "" + token.slice(0, -2);
 		}
+		if (token.slice(0, 1).localeCompare('\u0120') == 0) {
+			token = " " + token.slice(1, token.length);
+		}
 		if (token.slice(0, 1).localeCompare('\u010a') == 0) {
 			txtInput.innerHTML += "<br/>";
 		} else {
