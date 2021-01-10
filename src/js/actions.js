@@ -67,6 +67,7 @@ async function analyze() {
 		console.log(response)
 
 		let rankLen = jsonURL.rankLen
+
 		var avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;
 		if(jsonURL.src !== "gp"){
 			avg /= response.real_topk.length;
@@ -77,6 +78,7 @@ async function analyze() {
 		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(100-avg);
 		document.getElementById("score").style.display = 'block';
 
+
 		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(avg) + "likely to be written by AI.";
 		document.getElementById("scoreDetail").style.display = 'block';
 
@@ -86,7 +88,7 @@ async function analyze() {
 			"<div id='green' class='colour'>0-25<br>Least Likely</div>" +
 			"<div id='yellow' class='colour'>25-50<br>Not Likely</div>" +
 			"<div id='orange' class='colour'>50-75<br>Likely</div>" +
-			"<div id='red' class='colour'>75-100<br>Most Likely</div>" +
+			"<div id='red' class='colour'>75+<br>Most Likely</div>" +
 			"</div>";
 		document.getElementById("guideContainer").style.display = "block";
 		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>More Details</a>";
