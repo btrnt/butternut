@@ -1,9 +1,9 @@
-console.log('running background.js, hi friends');
+console.log('===running background.js, hi friends');
 
 chrome.tabs.onActivated.addListener(tab => {
 	chrome.tabs.get(tab.tabId, current_tab_info => {
-		console.log(tab); // getting tab id
-		console.log(current_tab_info.url);
+		console.log("===tab:\n" + tab); // getting tab id
+		console.log("===current_tab_info.url:\n" + current_tab_info.url);
 		chrome.tabs.executeScript(null, {file: './js/foreground.js'}, () => console.log('I injected this.'))
 	})
 })
@@ -25,9 +25,9 @@ function viewAnalytics(info, tab) {
 			height: 700
 		});
 	});
-	console.log(info.selectionText);
+	console.log("===info.selectionText:\n" + info.selectionText);
 	chrome.storage.local.set({'selectedText': info.selectionText}, function() {
-		console.log('Value is set to ' + info.selectionText);
+		console.log('===Value is set to: ' + info.selectionText);
 	});
 }
 
