@@ -65,6 +65,37 @@ h1 {
 	margin: 0.2em;
   }
 
+  #guide {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	text-align: center;
+	margin: 0.2em;
+  }
+
+  #guideContainer {
+	display:none;
+}
+
+.colour {
+	padding: 1em;
+	color: #333333;
+}
+
+#green {
+	background: #abbd81;
+}
+#yellow {
+	background: #f8b26a;
+}
+#orange {
+	background: #ee9153;
+}
+#red {
+	background: #e15b64;
+}
+  
+  
+
 /* =============== Buttons =============== */
 .btn {
 	background-color: transparent;
