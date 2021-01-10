@@ -9,6 +9,15 @@ btnAnalyze.addEventListener("click", analyze)
 
 async function analyze() {
 	console.log("===Analyzing");
+	if (txtInput.value.length == 0) {
+		document.getElementById("infoAbtSelected").innerHTML = "No input provided";
+		document.getElementById("infoAbtSelected").style.display = 'block';
+		document.getElementById("textarea").placeholder = "Please select text to analyze.";
+		document.getElementById("score").style.display = 'none';
+		document.getElementById("viewAnalyticsContainer").style.display = 'none';
+		document.getElementById("searchResultsContainer").style.display = 'none';
+		return;
+	} 
 	var extractedText = document.getElementById("textarea").value;
 	console.log("===Extracted text:\n" + extractedText);
 
@@ -21,7 +30,7 @@ async function analyze() {
 	document.getElementById("viewAnalyticsContainer").style.display = 'none';
 	document.getElementById("searchResultsContainer").style.display = 'none';
 
-		let responseText = await getAnalysis();
+	let responseText = await getAnalysis();
 	try{
 		let response = JSON.parse(responseText)
 
