@@ -99,8 +99,9 @@ async function analyze() {
 }
 
 function getAnalysis() {
-	return new Promise(function (resolve, reject) {
-		var url = "http://1fc34f5f7a58.ngrok.io/";
+	return new Promise(async function (resolve, reject) {
+		let responseURL = await fetch("https://raw.githubusercontent.com/btrnt/butternut/main/endpoint.txt", {method:"GET"})
+		let url = await responseURL.text();
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url);
@@ -112,7 +113,6 @@ function getAnalysis() {
 				reject(xhr.status)
 			}
 		};
-		console.log("uri: "+encodeURI(txtInput.value));
 		xhr.send("text=" + encodeURI(txtInput.value));
 	});
 }
