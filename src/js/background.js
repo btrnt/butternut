@@ -30,7 +30,7 @@ function viewPopupWindow(info, tab) {
 
 // The Right-clicky option!
 chrome.contextMenus.create({
-	title: "Search: %s",
+	title: "Analyze with Butternut",
 	contexts: ["selection"],
 	onclick: viewPopupWindow
 });
