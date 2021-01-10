@@ -3,9 +3,14 @@
 
 Is what you're reading online written by a human, or AI? Do the facts hold up? `butternut`is a chrome extension that leverages state-of-the-art text generation models *to combat* state-of-the-art text generation. 
 
+
+## Inspiration
+Misinformation spreads like wildfire in these days and it is only aggravated by AI-generated text and articles. We wanted to help fight back.
+
+## What it does
+Butternut is a chrome extension that analyzes text to determine just how likely a given article is AI-generated.
+
 ## Usage
-
-
 
 ## How it works
 Butternut is built off the GLTR paper [https://arxiv.org/abs/1906.04043](https://arxiv.org/abs/1906.04043). It takes any text input and then finds out what a text generating model *would've* predicted at each word/token. This array of every single possible prediction and their related probability is crossreferenced with the input text to determine the 'rank' of each token in the text: where on the list of possible predictions was the token in the text.
@@ -41,6 +46,19 @@ CTRL was selected for this project because it is trained on an especially large 
 
 >>> put in screenshots and describe design choices
 
+## Challenges we ran into
+- Deciding how to best represent the data
+- How to design a good interface that *invites* people to fact check instead of being scared of it
+- How to best calculate the overall score given a tricky rank distrubution
+
+## Accomplishments that we're proud of
+- Making stuff accessible: implementing a paper in such a way to make it useful **in under 24 hours!**
+
+## What we learned 
+- Using CTRL
+- How simple it is to make an API with Flask
+- How to make a chrome extension
+- Lots about NLP!
 
 ## What's next?
 Butternut may be extended to improve on it's fact-checking abilities
@@ -52,6 +70,10 @@ Butternut may be extended to improve on it's fact-checking abilities
 
 
 Made with care by:
+
+![Group photo](https://cdn.discordapp.com/attachments/795154570442833931/797730842234978324/unknown.png)
+
+
 ```json5
     'group_member_0': [brian chen](https://github.com/ihasdapie),
     'group_member_1': [trung bui](https://github.com/imqt),
