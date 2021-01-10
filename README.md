@@ -9,7 +9,7 @@ Is what you're reading online written by a human, or AI? Do the facts hold up? `
 ## How it works
 Butternut is built off the GLTR paper [https://arxiv.org/abs/1906.04043](https://arxiv.org/abs/1906.04043). It takes any text input and then finds out what a text generating model *would've* predicted at each word/token. This array of every single possible prediction and their related probability is crossreferenced with the input text to determine the 'rank' of each token in the text: where on the list of possible predictions was the token in the text.
 
-![backend_overview](https://github.com/btrnt/butternut/raw/main/butternut_backend_diagram.png)
+![backend_overview](content/butternut_backend_diagram.png)
 
 Text with consistently high ranks are more likely to be AI-generated because current AI-generated text models all work by selecting words/tokens that have the highest probability given the words before it. On the other hand, human-written text tends to have more variety.
 
