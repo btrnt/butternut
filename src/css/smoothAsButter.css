@@ -18,10 +18,16 @@ textarea {
 
 #displayArea {
 	border: 1px solid #333333;
+	word-wrap: break-word;
+	white-space: pre-line;
 	padding-top: 0.6em;
 	padding-bottom: 1em;
 	padding-left: 1em;
 	padding-right: 0.6em;
+}
+
+#ttt {
+	max-width: 100%;
 }
 
 #logo {

@@ -2,15 +2,15 @@ console.log("===running analytics.js");
 
 // document.getElementById("analyzeBtn").style.display = 'none';
 // document.getElementById("textarea").disabled = true;
-const txtInput = document.getElementById("displayArea");
+const txtInput = document.getElementById("ttt");
 
 chrome.storage.local.get(['selectedText'], function (data) {
 	let response = data.selectedText;
 
 	for (var i = 0; i < response.real_topk.length; i++) {
 		let token = response.bpe_strings[i + 1];
-		if (token.slice(0, 1).localeCompare('\u0120') == 0) {
-			token = " " + token.slice(1, token.length);
+		if (token.slice(-2, token.length).localeCompare('@@') == 0) {
+			token = "" + token.slice(0, -2);
 		}
 		if (token.slice(0, 1).localeCompare('\u010a') == 0) {
 			txtInput.innerHTML += "<br/>";
