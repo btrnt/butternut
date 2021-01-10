@@ -43,7 +43,7 @@ Example of human-generated text:
 
 
 Example of GPT text:
-![gpt_text)(https://cdn.discordapp.com/attachments/795154570442833931/797931307958534185/unknown.png)
+![gpt_text](https://cdn.discordapp.com/attachments/795154570442833931/797931307958534185/unknown.png)
 
 This was all wrapped up in a simple Flask API for use in a chrome extension.
 
