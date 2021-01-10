@@ -1,15 +1,19 @@
 /* Let's get this goin boiz */
 
 body {
+	color: #333333;
 	padding-bottom: 1em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
 }
 
 textarea {
-	border: 2px, solid, black;
+	padding-top: 0.3em;
+	padding-left: 0.5em;
 }
 
-#controls {
-	margin-top: 1em;
+.controls {
+	margin-top: 2.2em;
 }
 
 #analyzeBtn, #infoAbtSelected {
@@ -17,12 +21,11 @@ textarea {
 }
 
 #logo {
-	max-width: 12%;
+	max-height: 28px;
 }
 
 h1 {
 	font-size: 32px;
-	color: #333333;
 }
 
 #viewAnalyticsContainer, #searchResults {
@@ -32,7 +35,6 @@ h1 {
 /* =============== Buttons =============== */
 .btn {
 	background-color: transparent;
-	color: black;
 	padding: 0.5em 0.8em;
 	position: relative;
 	text-decoration: none;
@@ -45,12 +47,12 @@ h1 {
 
 .btn:hover {
 	cursor: pointer;
-	box-shadow: 1px 5px 1px black;
+	box-shadow: 1px 3px 1px black;
 }
 
 .btn:active {
 	box-shadow: none;
-	top: 5px;
+	top: 3px;
 	left: 1px;
 }
 /* =============== Buttons =============== */

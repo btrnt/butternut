@@ -1,4 +1,5 @@
 // For triggered events
+console.log("running actions.js");
 
 document.getElementById("analyzeBtn").addEventListener("click", analyze);
 

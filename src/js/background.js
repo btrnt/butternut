@@ -1,5 +1,4 @@
-
-console.log('from background, hi friends');
+console.log('running background.js, hi friends');
 
 chrome.tabs.onActivated.addListener(tab => {
 	chrome.tabs.get(tab.tabId, current_tab_info => {
@@ -21,7 +20,9 @@ function viewAnalytics(info, tab) {
 		chrome.windows.create({
 			tabId: tab.id,
 			type: 'popup',
-			focused: true
+			focused: true,
+			width: 700,
+			height: 700
 		});
 	});
 	console.log(info.selectionText);

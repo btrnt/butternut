@@ -1,6 +1,4 @@
-
-
-console.log("from foreground");
+console.log("running init_popop.js");
 
 chrome.tabs.executeScript({
 	code: "window.getSelection().toString();"
