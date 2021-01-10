@@ -2,6 +2,7 @@
 
 body {
 	color: #333333;
+	margin: 0;
 	padding-bottom: 1em;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
@@ -12,13 +13,6 @@ textarea {
 	padding-left: 0.5em;
 }
 
-.controls {
-	margin-top: 2.2em;
-}
-
-#analyzeBtn, #infoAbtSelected {
-	display: inline;
-}
 
 #logo {
 	max-height: 28px;
@@ -26,6 +20,14 @@ textarea {
 
 h1 {
 	font-size: 32px;
+}
+
+.controls {
+	margin-top: 2.2em;
+}
+
+#analyzeBtn, #infoAbtSelected {
+	display: inline;
 }
 
 #viewAnalyticsContainer, #searchResults {

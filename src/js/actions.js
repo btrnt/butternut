@@ -9,13 +9,15 @@ btnAnalyze.addEventListener("click", analyze)
 
 async function analyze() {
 	console.log("Analyzing");
-	console.log(document.getElementById("textarea").value);
+	var extractedText = document.getElementById("textarea").value;
+	console.log(extractedText);
+	document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
 
-	// document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
-	// document.getElementById("viewAnalyticsContainer").style.display = 'block';
-    //
-	// document.getElementById("searchResults").innerHTML = "<span>Similar News Search Results:</span>";
-	// document.getElementById("searchResults").style.display = 'block';
+	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
+	document.getElementById("viewAnalyticsContainer").style.display = 'inline';
+    
+	document.getElementById("searchResults").innerHTML = "<p>Similar News Search Results:</p>";
+	document.getElementById("searchResults").style.display = 'inline';
 
     var url = "http://b040ffa10081.ngrok.io/gp";
 
@@ -34,5 +36,4 @@ async function analyze() {
 
 	console.log(xhr.responseText)
 
-	document.getElementById("infoAbtSelected").innerHTML = "Length: " + document.getElementById("textarea").value.length;
 }
