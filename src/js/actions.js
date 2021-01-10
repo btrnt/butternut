@@ -32,5 +32,11 @@ async function analyze() {
 
 	console.log(xhr.responseText)
 
+
+    var response = JSON.parse(xhr.responseText)
+    console.log(response)
+
 	document.getElementById("infoAbtSelected").innerHTML = "Length: " + document.getElementById("textarea").value.length;
 }
+
+async function analyzeText(){
