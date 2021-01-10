@@ -18,8 +18,8 @@ function viewPopupWindow(info, tab) {
 			tabId: tab.id,
 			type: 'popup',
 			focused: true,
-			width: 400,
-			height: 600
+			width: 550,
+			height: 800
 		});
 	});
 	console.log("===info.selectionText:\n" + info.selectionText);
