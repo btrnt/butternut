@@ -61,10 +61,11 @@ async function analyze() {
 		console.log(response)
 
 		let rankLen = 50257
-		let avg = response.real_topk.reduce((total, val) => total + val[0], 0) / rankLen
-		console.log((avg * 100).toPrecision(2))
-		document.getElementById("score").innerText = (avg * 100).toPrecision(2);
-		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(100 - (avg * 100));
+		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;
+
+		console.log(Math.round(avg).toPrecision(2))
+		document.getElementById("score").innerText = Math.round(avg).toString();
+		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(avg);
 		document.getElementById("score").style.display = 'block';
 
 
@@ -107,6 +108,7 @@ function getAnalysis() {
 				reject(xhr.status)
 			}
 		};
+		console.log("uri: "+encodeURI(txtInput.value));
 		xhr.send("text=" + encodeURI(txtInput.value));
 	});
 }
