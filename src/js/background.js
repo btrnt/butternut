@@ -11,7 +11,6 @@ chrome.tabs.onActivated.addListener(tab => {
 
 // Responsible for opening the extension, with the ID, to view the Analytics.
 function viewAnalytics(info, tab) {
-	console.log(info.selectionText);
 		// Use the variable "info.selectionText" to grab the selected text.
 
 	 chrome.tabs.create({
@@ -25,9 +24,10 @@ function viewAnalytics(info, tab) {
 			focused: true
 		});
 	});
-
-	const channel = new BroadcastChannel("my-channel");
-    channel.postMessage(info.selectionText);
+	console.log(info.selectionText);
+	chrome.storage.sync.set({'selectedText': info.selectionText}, function() {
+		console.log('Value is set to ' + info.selectionText);
+	});
 }
 
 // The Right-clicky option!

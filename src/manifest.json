@@ -21,6 +21,7 @@
     "tabs",
     "activeTab",
     "<all_urls>",
+    "storage",
     "contextMenus"
   ]
 }
