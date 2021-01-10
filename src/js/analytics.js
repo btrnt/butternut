@@ -7,21 +7,17 @@ const txtInput = document.getElementById("textarea");
 chrome.storage.local.get(['selectedText'], function(data) {
 	let response = data.selectedText;
 
-	for (var i = 0; i < response.bpe_strings.length; i++) {
-		let token = response.bpe_strings[i];
-		if (token.slice(0, 1).localeCompare('\u0120') == 0 ) {
-			response.bpe_strings[i] = " " + token.slice(1, token.length);	
-		}
-	}
-
 	for (var i = 0; i < response.real_topk.length; i++) {
 		let token = response.bpe_strings[i+1];
+		if (token.slice(0, 1).localeCompare('\u0120') == 0 ) {
+			token = " " + token.slice(1, token.length);	
+		}
 		if (token.slice(0, 1).localeCompare('\u010a') == 0 ) {
 			txtInput.innerHTML += "<br/>";	
 		} else {
 			txtInput.innerHTML += "<mark style='background-color:" 
 						 + perc2color(100-(response.real_topk[i][0]*100))
-						 + "'>" + response.bpe_strings[i+1] + "</mark>";
+						 + "'>" + token + "</mark>";
 		}
 	}
 });
