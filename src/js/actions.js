@@ -64,7 +64,7 @@ async function analyze() {
 		let avg = response.real_topk.reduce((total, val) => total + val[0], 0) / rankLen
 		console.log((avg * 100).toPrecision(2))
 		document.getElementById("score").innerText = (avg * 100).toPrecision(2);
-		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2color(100 - (avg * 100));
+		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(100 - (avg * 100));
 		document.getElementById("score").style.display = 'block';
 
 
@@ -123,4 +123,16 @@ function perc2color(perc) {
 	}
 	var h = r * 0x10000 + g * 0x100 + b * 0x1;
 	return '#' + ('000000' + h.toString(16)).slice(-6);
+}
+
+function perc2colorMap(perc) {
+	if (perc < 25) {
+		return '#e15b64'
+	}else if (perc < 50){
+		return '#ee9153'
+	}else if (perc < 75){
+		return '#f8b26a'
+	}else{
+		return '#abbd81'
+	}
 }
