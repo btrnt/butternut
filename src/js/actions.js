@@ -67,7 +67,8 @@ async function analyze() {
 		console.log(response)
 
 		let rankLen = jsonURL.rankLen
-		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;///response.real_topk.length
+		if(jsonURL.src === "gp")
+		let avg = (jsonURL.src === "gp")? response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100: response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen/response.real_topk.length*100;
 
 		console.log(Math.round(avg).toPrecision(2))
 		document.getElementById("score").innerText = Math.round(avg).toString();
