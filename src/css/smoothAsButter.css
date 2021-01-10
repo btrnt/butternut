@@ -59,6 +59,10 @@ h1 {
 	display: none;
 }
 
+#scoreDetail {
+	display:none;
+}
+
 #score {
 	width: 150px;
 	height: 150px;
