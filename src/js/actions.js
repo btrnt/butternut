@@ -13,6 +13,7 @@ async function analyze() {
 	console.log("===Extracted text:\n" + extractedText);
 	if (extractedText.length == 0) {
 		document.getElementById("infoAbtSelected").innerHTML = "No input provided";
+		document.getElementById("textarea").placeholder = "Please select text to analyze.";
 	} else {
 		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
 	}
@@ -21,7 +22,7 @@ async function analyze() {
 	document.getElementById("viewAnalyticsContainer").style.display = 'block';
 
 	document.getElementById("searchResults").innerHTML = "<p>Similar News Search Results:</p>";
-	document.getElementById("searchResults").style.display = 'inline';
+	document.getElementById("searchResults").style.display = 'block';
 
 	document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
 	document.getElementById("searchResultsContainer").style.display = 'block';
