@@ -2,10 +2,15 @@
 console.log("===running actions.js");
 
 const btnAnalyze = document.getElementById("analyzeBtn")
+const btnViewAnalytics = document.getElementById("viewAnalyticsContainer")
 const txtOutput = document.getElementById("infoAbtSelected")
 const txtInput = document.getElementById("textarea")
 
-btnAnalyze.addEventListener("click", analyze)
+btnAnalyze.addEventListener("click", analyze);
+
+function viewAnalytics() {
+	location.replace("https://www.google.com");
+}
 
 async function analyze() {
 	console.log("===Analyzing");
@@ -16,6 +21,7 @@ async function analyze() {
 		document.getElementById("score").style.display = 'none';
 		document.getElementById("viewAnalyticsContainer").style.display = 'none';
 		document.getElementById("searchResultsContainer").style.display = 'none';
+		btnViewAnalytics.addEventListener("click", null);
 		return;
 	} 
 	var extractedText = document.getElementById("textarea").value;
@@ -58,7 +64,7 @@ async function analyze() {
 				active: false
 			})
 		});
-
+		btnViewAnalytics.addEventListener("click", viewAnalytics);
 	}catch(e){
 		console.log(e)
 	}
