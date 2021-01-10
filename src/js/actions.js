@@ -22,10 +22,10 @@ function viewAnalytics() {
 		// After the tab has been created, open a window to inject the tab
 		chrome.windows.create({
 			tabId: tab.id,
-			type: 'popup',
+			type: 'app',
 			focused: true,
-			width: 400,
-			height: 600
+			// width: 400,
+			// height: 800
 		});
 	});
 }
@@ -37,6 +37,7 @@ async function analyze() {
 		document.getElementById("infoAbtSelected").style.display = 'block';
 		document.getElementById("textarea").placeholder = "Please select text to analyze.";
 		document.getElementById("score").style.display = 'none';
+		document.getElementById("scoreDetail").style.display = 'none';
 		document.getElementById("viewAnalyticsContainer").style.display = 'none';
 		document.getElementById("searchResultsContainer").style.display = 'none';
 		btnViewAnalytics.addEventListener("click", null);
@@ -51,11 +52,12 @@ async function analyze() {
 	document.getElementById("infoAbtSelected").style.display = 'none';
 	document.getElementById("textarea").placeholder = "Please select text to analyze.";
 	document.getElementById("score").style.display = 'none';
+	document.getElementById("scoreDetail").style.display = 'none';
 	document.getElementById("viewAnalyticsContainer").style.display = 'none';
 	document.getElementById("searchResultsContainer").style.display = 'none';
 
 	let responseText = await getAnalysis();
-	try{
+	try {
 		response = JSON.parse(responseText)
 		console.log("===xhr.responseText:\n" + responseText);
 		console.log(response)
@@ -68,6 +70,8 @@ async function analyze() {
 		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(avg);
 		document.getElementById("score").style.display = 'block';
 
+		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(100 - (avg * 100)) + "likely to be written by AI.";
+		document.getElementById("scoreDetail").style.display = 'block';
 
 		document.getElementById("loadingImg").style.display = 'none';
 		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
@@ -89,7 +93,7 @@ async function analyze() {
 			})
 		});
 		btnViewAnalytics.addEventListener("click", viewAnalytics);
-	}catch(e){
+	} catch (e) {
 		console.log(e)
 	}
 }
@@ -130,11 +134,23 @@ function perc2color(perc) {
 function perc2colorMap(perc) {
 	if (perc < 25) {
 		return '#e15b64'
-	}else if (perc < 50){
+	} else if (perc < 50) {
 		return '#ee9153'
-	}else if (perc < 75){
+	} else if (perc < 75) {
 		return '#f8b26a'
-	}else{
+	} else {
 		return '#abbd81'
+	}
+}
+
+function perc2word(perc) {
+	if (perc < 25) {
+		return 'most '
+	} else if (perc < 50) {
+		return ' '
+	} else if (perc < 75) {
+		return 'not '
+	} else {
+		return 'least '
 	}
 }
