@@ -56,13 +56,17 @@ async function analyze() {
 	document.getElementById("viewAnalyticsContainer").style.display = 'none';
 	document.getElementById("searchResultsContainer").style.display = 'none';
 
-	let responseText = await getAnalysis();
+	let responseURL = await fetch("https://raw.githubusercontent.com/btrnt/butternut/main/endpoint.json", {method:"GET"})
+	let jsonURL = await responseURL.json();
+	let url = jsonURL.url
+
+	let responseText = await getAnalysis(url);
 	try {
 		response = JSON.parse(responseText)
 		console.log("===xhr.responseText:\n" + responseText);
 		console.log(response)
 
-		let rankLen = 246534
+		let rankLen = jsonURL.rankLen
 		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/response.real_topk.length/rankLen*100;
 
 		console.log(Math.round(avg).toPrecision(2))
@@ -98,11 +102,9 @@ async function analyze() {
 	}
 }
 
-function getAnalysis() {
+function getAnalysis(url) {
 	return new Promise(async function (resolve, reject) {
-		let responseURL = await fetch("https://raw.githubusercontent.com/btrnt/butternut/main/endpoint.json", {method:"GET"})
-		let jsonURL = await responseURL.json();
-		let url = jsonURL.url
+
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url);
