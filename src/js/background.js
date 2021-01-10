@@ -19,7 +19,7 @@ function viewPopupWindow(info, tab) {
 			type: 'popup',
 			focused: true,
 			width: 400,
-			height: 500
+			height: 600
 		});
 	});
 	console.log("===info.selectionText:\n" + info.selectionText);

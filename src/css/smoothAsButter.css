@@ -1,6 +1,7 @@
 /* Let's get this goin boiz */
 
 body {
+	background-color: #fffaf0;
 	color: #333333;
 	margin: 0;
 	padding-bottom: 2.5em;
@@ -13,6 +14,14 @@ textarea {
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 	resize: none;
+}
+
+#displayArea {
+	border: 1px solid #333333;
+	padding-top: 0.6em;
+	padding-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 0.6em;
 }
 
 #logo {
@@ -136,7 +145,7 @@ h1 {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #aaaa88; 
 }
 
 /* Handle on hover */

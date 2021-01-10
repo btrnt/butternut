@@ -2,7 +2,7 @@ console.log("===running analytics.js");
 
 // document.getElementById("analyzeBtn").style.display = 'none';
 // document.getElementById("textarea").disabled = true;
-const txtInput = document.getElementById("textarea");
+const txtInput = document.getElementById("displayArea");
 
 chrome.storage.local.get(['selectedText'], function(data) {
 	let response = data.selectedText;
@@ -16,7 +16,7 @@ chrome.storage.local.get(['selectedText'], function(data) {
 			txtInput.innerHTML += "<br/>";	
 		} else {
 			txtInput.innerHTML += "<mark style='background-color:" 
-						 + perc2color(100-(response.real_topk[i][0]*100))
+						 + perc2color(100-((response.real_topk[i][0])/1000*100))
 						 + "'>" + token + "</mark>";
 		}
 	}

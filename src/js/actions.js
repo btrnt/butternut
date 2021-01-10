@@ -25,7 +25,7 @@ function viewAnalytics() {
 			type: 'popup',
 			focused: true,
 			width: 400,
-			height: 500
+			height: 600
 		});
 	});
 }
