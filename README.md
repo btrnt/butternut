@@ -22,6 +22,8 @@ Example of human-generated text:
 Example of GPT text:
 ![gpt_text)(another_url)
 
+This was all wrapped up in a simple Flask API for use in a chrome extension.
+
 
 For more details on how GLTR works please check out their paper. It's a good read. https://arxiv.org/abs/1906.04043
 
@@ -32,25 +34,20 @@ Two backends are defined in the [butternut backend repo](https://github.com/btrn
 1. GPT-2: GPT-2 is a well-known general purpose text generation model and is included in the GLTR team's [demo repo](https://github.com/HendrikStrobelt/detecting-fake-text)
 2. Salesforce CTRL: [Salesforce CTRL](https://github.com/salesforce/ctrl) (1.6 billion parameter) is bigger than all GPT-2 varients (117 million - 1.5 billion parameters) and is purpose-built for data generation. A custom backend was 
 
-CTRL is trained on an especially lar
-
-
-
-
-
+CTRL was selected for this project because it is trained on an especially large dataset meaning that it has a larger knowledge base to draw from to discriminate between AI and human -written texts. This, combined with its greater complexity, enables butternut to stay a step ahead of AI text generators.
 
 ## Design
 
 
 
-
+## What's next?
 
 
 
 Made with care by:
 ```json5
     'group_member_0': [brian chen](https://github.com/ihasdapie),
-    'group_member_1': 
+    'group_member_1': [trung bui](https://github.com/imqt),
     'group_member_2': 
     'group_member_3': 
 ```
