@@ -62,12 +62,12 @@ async function analyze() {
 		console.log("===xhr.responseText:\n" + responseText);
 		console.log(response)
 
-		let rankLen = 50257
-		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;
+		let rankLen = 246534
+		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/response.real_topk.length/rankLen*100;
 
 		console.log(Math.round(avg).toPrecision(2))
 		document.getElementById("score").innerText = Math.round(avg).toString();
-		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(avg);
+		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(100-avg);
 		document.getElementById("score").style.display = 'block';
 
 		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(100 - (avg * 100)) + "likely to be written by AI.";
@@ -100,7 +100,7 @@ async function analyze() {
 
 function getAnalysis() {
 	return new Promise(function (resolve, reject) {
-		var url = "http://5e42c4bac232.ngrok.io/gp";
+		var url = "http://1fc34f5f7a58.ngrok.io/";
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url);
