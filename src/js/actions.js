@@ -13,25 +13,24 @@ async function analyze() {
 	console.log("===Extracted text:\n" + extractedText);
 	if (extractedText.length == 0) {
 		document.getElementById("infoAbtSelected").innerHTML = "No input provided";
+		document.getElementById("textarea").placeholder = "Please select text to analyze.";
+		document.getElementById("score").style.display = 'none';
+		document.getElementById("viewAnalyticsContainer").style.display = 'none';
+		document.getElementById("searchResultsContainer").style.display = 'none';
 	} else {
 		document.getElementById("infoAbtSelected").innerHTML = "Length: " + extractedText.length;
+		document.getElementById("score").style.display = 'block';
+		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
+		document.getElementById("viewAnalyticsContainer").style.display = 'inline';
+		document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
+		document.getElementById("searchResultsContainer").style.display = 'inline';
+		document.getElementById('searchResults').addEventListener("click", function () {
+			chrome.tabs.create({
+				url: 'https://www.google.com/search?q=' + document.getElementById("textarea").value,
+				active: false
+			})
+		});
 	}
-
-	document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>View Analytics</a>";
-	document.getElementById("viewAnalyticsContainer").style.display = 'inline';
-
-	document.getElementById("searchResults").innerHTML = "<p>Similar News Search Results:</p>";
-	document.getElementById("searchResults").style.display = 'inline';
-
-	document.getElementById("searchResultsContainer").innerHTML = "<a id='searchResults' class='btn noselect'>Search on Google</a>";
-	document.getElementById("searchResultsContainer").style.display = 'inline';
-
-	document.getElementById('searchResults').addEventListener("click", function () {
-		chrome.tabs.create({
-			url: 'https://www.google.com/search?q=' + document.getElementById("textarea").value,
-			active: false
-		})
-	});
 
 	try{
 		let responseText = await getAnalysis();

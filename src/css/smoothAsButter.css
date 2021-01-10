@@ -4,18 +4,20 @@ body {
 	color: #333333;
 	margin: 0;
 	padding-bottom: 1em;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
 }
 
 textarea {
 	padding-top: 0.3em;
 	padding-left: 0.5em;
+	padding-right: 0.5em;
+	resize: none;
 }
 
 
 #logo {
-	max-height: 28px;
+	height: 28px;
 }
 
 h1 {
@@ -23,16 +25,31 @@ h1 {
 }
 
 .controls {
-	margin-top: 2.2em;
+	/*margin-top: : 2.2em;*/
 }
 
 #analyzeBtn, #infoAbtSelected {
-	display: inline;
+	text-align: center;
+	display: block;
 }
 
 #viewAnalyticsContainer, #searchResultsContainer {
-	display:none;
+	text-align: center;
+	display: none;
 }
+
+#score {
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	border-radius: 50%;
+	font-size: 90px;
+	color: white;
+	text-align: center;
+	background: red;
+	display:none;
+	margin: 0.2em;
+  }
 
 /* =============== Buttons =============== */
 .btn {
@@ -45,17 +62,18 @@ h1 {
 	text-transform: uppercase;
 	border: 2px solid black;
 	border-radius: 12px;
+	box-shadow: 1px 2px 1px #333333;
 }
 
 .btn:hover {
 	cursor: pointer;
-	box-shadow: 1px 3px 1px black;
+	box-shadow: 2px 3px 1px black;
 }
 
 .btn:active {
 	box-shadow: none;
 	top: 3px;
-	left: 1px;
+	left: 2px;
 }
 /* =============== Buttons =============== */
 

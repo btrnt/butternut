@@ -21,8 +21,8 @@ function viewAnalytics(info, tab) {
 			tabId: tab.id,
 			type: 'popup',
 			focused: true,
-			width: 700,
-			height: 700
+			width: 400,
+			height: 500
 		});
 	});
 	console.log("===info.selectionText:\n" + info.selectionText);
