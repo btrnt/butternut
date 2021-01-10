@@ -68,14 +68,16 @@ async function analyze() {
 
 		let rankLen = jsonURL.rankLen
 		if(jsonURL.src === "gp")
-		let avg = (jsonURL.src === "gp")? response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100: response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen/response.real_topk.length*100;
-
+		var avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen/response.real_topk.length*100;
+		if(jsonURL.src === "gp"){
+			avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;
+		}
 		console.log(Math.round(avg).toPrecision(2))
 		document.getElementById("score").innerText = Math.round(avg).toString();
 		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(100-avg);
 		document.getElementById("score").style.display = 'block';
 
-		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(100 - (avg * 100)) + "likely to be written by AI.";
+		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(100-avg) + "likely to be written by AI.";
 		document.getElementById("scoreDetail").style.display = 'block';
 
 		document.getElementById("loadingImg").style.display = 'none';
