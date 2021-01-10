@@ -47,7 +47,7 @@ CTRL was selected for this project because it is trained on an especially large 
 Made with care by:
 ```json5
     'group_member_0': [brian chen](https://github.com/ihasdapie),
-    'group_member_1': 
+    'group_member_1': [trung bui](https://github.com/imqt),
     'group_member_2': 
     'group_member_3': 
 ```
