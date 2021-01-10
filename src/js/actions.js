@@ -9,7 +9,19 @@ const txtInput = document.getElementById("textarea")
 btnAnalyze.addEventListener("click", analyze);
 
 function viewAnalytics() {
-	location.replace("https://www.google.com");
+	chrome.tabs.create({
+		url: chrome.extension.getURL('./analytics.html'),
+		active: false
+	}, function (tab) {
+		// After the tab has been created, open a window to inject the tab
+		chrome.windows.create({
+			tabId: tab.id,
+			type: 'popup',
+			focused: true,
+			width: 400,
+			height: 500
+		});
+	});
 }
 
 async function analyze() {

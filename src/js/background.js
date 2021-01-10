@@ -8,12 +8,9 @@ chrome.tabs.onActivated.addListener(tab => {
 	})
 })
 
-// Responsible for opening the extension, with the ID, to view the Analytics.
-function viewAnalytics(info, tab) {
-	// Use the variable "info.selectionText" to grab the selected text.
-
+function viewPopupWindow(info, tab) {
 	chrome.tabs.create({
-		url: chrome.extension.getURL('analytics.html'),
+		url: chrome.extension.getURL('popupWindow.html'),
 		active: false
 	}, function (tab) {
 		// After the tab has been created, open a window to inject the tab
@@ -35,6 +32,6 @@ function viewAnalytics(info, tab) {
 chrome.contextMenus.create({
 	title: "Search: %s",
 	contexts: ["selection"],
-	onclick: viewAnalytics
+	onclick: viewPopupWindow
 });
 
