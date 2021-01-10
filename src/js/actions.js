@@ -67,17 +67,14 @@ async function analyze() {
 		console.log(response)
 
 		let rankLen = jsonURL.rankLen
-		if(jsonURL.src === "gp")
-		var avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen/response.real_topk.length*100;
-		if(jsonURL.src === "gp"){
-			avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;
-		}
+		let avg = response.real_topk.reduce((total, val) => total + val[0], 0)/rankLen*100;///response.real_topk.length
+
 		console.log(Math.round(avg).toPrecision(2))
 		document.getElementById("score").innerText = Math.round(avg).toString();
 		document.getElementById("score").attributes['style'].textContent = 'background-color:' + perc2colorMap(100-avg);
 		document.getElementById("score").style.display = 'block';
 
-		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(100-avg) + "likely to be written by AI.";
+		document.getElementById("scoreDetail").innerText = "The text is " + perc2word(100 - (avg * 100)) + "likely to be written by AI.";
 		document.getElementById("scoreDetail").style.display = 'block';
 
 		document.getElementById("loadingImg").style.display = 'none';
@@ -86,7 +83,7 @@ async function analyze() {
 			"<div id='green' class='colour'>0-25<br>Least Likely</div>" +
 			"<div id='yellow' class='colour'>25-50<br>Not Likely</div>" +
 			"<div id='orange' class='colour'>50-75<br>Likely</div>" +
-			"<div id='red' class='colour'>75-100<br>Most Likely</div>" +
+			"<div id='red' class='colour'>75+<br>Most Likely</div>" +
 			"</div>";
 		document.getElementById("guideContainer").style.display = "block";
 		document.getElementById("viewAnalyticsContainer").innerHTML = "<a id='viewAnalytics' class='btn noselect'>More Details</a>";
