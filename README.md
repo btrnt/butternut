@@ -3,19 +3,27 @@
 
 Is what you're reading online written by a human, or AI? Do the facts hold up? `butternut`is a chrome extension that leverages state-of-the-art text generation models *to combat* state-of-the-art text generation. 
 
-
-## Inspiration
-Misinformation spreads like wildfire in these days and it is only aggravated by AI-generated text and articles. We wanted to help fight back.
-
-## What it does
-Butternut is a chrome extension that analyzes text to determine just how likely a given article is AI-generated.
+## Installation
+1. Download: Either download or clone the repo.
+2. Install: Drag the src folder onto chrome://extensions/ 
+The extension should then be ready to be used.
 
 ## Usage
+1. Open a webpage or a news article you are interested in.
+2. Select a piece of text you are interested in.
+3. Navigate to the Butternut extension and click on it.
+    3.1 The text should be auto copied into the input area. 
+        (you could also manually copy and paste text there)
+    3.2 Click on "Analyze".
+4. After a brief delay, the result will show up.
+5. Click on "More Details" for further analysis and breakdown of the text.
+6. "Search More Articles" will do a quick google search of the pasted text.
+
 
 ## How it works
 Butternut is built off the GLTR paper [https://arxiv.org/abs/1906.04043](https://arxiv.org/abs/1906.04043). It takes any text input and then finds out what a text generating model *would've* predicted at each word/token. This array of every single possible prediction and their related probability is crossreferenced with the input text to determine the 'rank' of each token in the text: where on the list of possible predictions was the token in the text.
 
-![backend_overview](content/butternut_backend_diagram.png)
+![backend_overview](https://github.com/btrnt/butternut/raw/main/butternut_backend_diagram.png)
 
 Text with consistently high ranks are more likely to be AI-generated because current AI-generated text models all work by selecting words/tokens that have the highest probability given the words before it. On the other hand, human-written text tends to have more variety.
 
@@ -46,19 +54,6 @@ CTRL was selected for this project because it is trained on an especially large 
 
 >>> put in screenshots and describe design choices
 
-## Challenges we ran into
-- Deciding how to best represent the data
-- How to design a good interface that *invites* people to fact check instead of being scared of it
-- How to best calculate the overall score given a tricky rank distrubution
-
-## Accomplishments that we're proud of
-- Making stuff accessible: implementing a paper in such a way to make it useful **in under 24 hours!**
-
-## What we learned 
-- Using CTRL
-- How simple it is to make an API with Flask
-- How to make a chrome extension
-- Lots about NLP!
 
 ## What's next?
 Butternut may be extended to improve on it's fact-checking abilities
@@ -70,16 +65,11 @@ Butternut may be extended to improve on it's fact-checking abilities
 
 
 Made with care by:
-
-![Group photo](https://cdn.discordapp.com/attachments/795154570442833931/797730842234978324/unknown.png)
-
-
 ```json5
-// our team: 
     'group_member_0': [brian chen](https://github.com/ihasdapie),
     'group_member_1': [trung bui](https://github.com/imqt),
-    'group_member_2': [vivian wi](https://github.com/vvnwu),
-    'group_member_3': [hans sy](https://github.com/hanssy130)
+    'group_member_2': 
+    'group_member_3': 
 ```
 
 
