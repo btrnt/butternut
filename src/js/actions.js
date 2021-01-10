@@ -100,8 +100,9 @@ async function analyze() {
 
 function getAnalysis() {
 	return new Promise(async function (resolve, reject) {
-		let responseURL = await fetch("https://raw.githubusercontent.com/btrnt/butternut/main/endpoint.txt", {method:"GET"})
-		let url = await responseURL.text();
+		let responseURL = await fetch("https://raw.githubusercontent.com/btrnt/butternut/main/endpoint.json", {method:"GET"})
+		let jsonURL = await responseURL.json();
+		let url = jsonURL.url
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url);
